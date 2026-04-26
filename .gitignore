@@ -1,2 +1,12 @@
 venv/
 .venv/
+__pycache__/
+*.pyc
+artifacts/
+logs/
+.ipynb_checkpoints/
+.env
+mlruns/
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,35 @@
+columns:
+  CustomerID: object
+  Count: int64
+  Country: object
+  State: object
+  City: object
+  Zip Code: int64
+  Lat Long: object
+  Latitude: float64
+  Longitude: float64
+  Gender: object
+  Senior Citizen: object
+  Partner: object
+  Dependents: object
+  Tenure Months: int64
+  Phone Service: object
+  Multiple Lines: object
+  Internet Service: object
+  Online Security: object
+  Online Backup: object
+  Device Protection: object
+  Tech Support: object
+  Streaming TV: object
+  Streaming Movies: object
+  Contract: object
+  Paperless Billing: object
+  Payment Method: object
+  Monthly Charges: float64
+  Total Charges: object
+  Churn Label: object
+  Churn Value: int64
+  Churn Score: int64
+  CLTV: int64
+  Churn Reason: object
+  

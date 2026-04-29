@@ -11,6 +11,11 @@ class DataIngestionConfig:
 class DataValidationConfig:
     unzip_data_dir: str
     STATUS_FILE: str
+
+@dataclass
+class DataTransformationConfig:
+    preprocessor_obj_file_path: str
+    
     
 
 

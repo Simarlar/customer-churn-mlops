@@ -15,6 +15,15 @@ class DataValidationConfig:
 @dataclass
 class DataTransformationConfig:
     preprocessor_obj_file_path: str
+
+@dataclass
+class ModelTrainerConfig:
+    trained_model_file_path: str
+
+@dataclass
+class ModelEvaluationConfig:
+    metric_file_path: str
+       
     
     
 

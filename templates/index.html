@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Customer Churn Prediction System</h2>
+
+    <form action="/predict" method="post">
+
+        <h4>Customer Info</h4>
+
+        Gender: <input name="Gender" type="text"><br>
+        Senior Citizen: <input name="Senior Citizen" type="text"><br>
+        Partner: <input name="Partner" type="text"><br>
+        Dependents: <input name="Dependents" type="text"><br>
+        Tenure Months: <input name="Tenure Months" type="number"><br>
+
+        <h4>Services</h4>
+
+        Phone Service: <input name="Phone Service" type="text"><br>
+        Multiple Lines: <input name="Multiple Lines" type="text"><br>
+        Internet Service: <input name="Internet Service" type="text"><br>
+        Online Security: <input name="Online Security" type="text"><br>
+        Online Backup: <input name="Online Backup" type="text"><br>
+        Device Protection: <input name="Device Protection" type="text"><br>
+        Tech Support: <input name="Tech Support" type="text"><br>
+        Streaming TV: <input name="Streaming TV" type="text"><br>
+        Streaming Movies: <input name="Streaming Movies" type="text"><br>
+
+        <h4>Contract Info</h4>
+
+        Contract: <input name="Contract" type="text"><br>
+        Paperless Billing: <input name="Paperless Billing" type="text"><br>
+        Payment Method: <input name="Payment Method" type="text"><br>
+
+        <h4>Billing</h4>
+
+        Monthly Charges: <input name="Monthly Charges" type="number"><br>
+        Total Charges: <input name="Total Charges" type="text"><br>
+        CLTV: <input name="CLTV" type="number"><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+    <h4>{{ probability }}</h4>
+</div>
+
+</body>
+</html>

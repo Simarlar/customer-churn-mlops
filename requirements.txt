@@ -1,8 +1,10 @@
-pandas
-numpy
-scikit-learn
 flask
 fastapi
 uvicorn
-pyyaml
+requests
+pandas
+numpy
+scikit-learn
 joblib
+mlflow
+pydantic

@@ -39,7 +39,7 @@ def predict():
     }
 
     response = requests.post(
-        "http://127.0.0.1:8000/predict",
+        "http://fastapi-app:8000/predict",
         json=payload)
     
     if response.status_code == 200:

@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template
 import requests
+import os
 
+API_URL = os.getenv("API_URL")
 
 app = Flask(__name__)
 
@@ -39,7 +41,7 @@ def predict():
     }
 
     response = requests.post(
-        "http://fastapi-app:8000/predict",
+        f"{API_URL}/predict",
         json=payload)
     
     if response.status_code == 200:

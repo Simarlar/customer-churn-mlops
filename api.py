@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 import joblib
+from src.logger import logger
+import time
 
 app = FastAPI()
 
@@ -32,8 +34,17 @@ class CustomerData(BaseModel):
     CLTV: int
 
 @app.get("/")
-def health_check():
+def home():
     return {"message": "FastAPI is running"}
+
+@app.get("/health")
+def health_check():
+    return {
+        "status":"healthy",
+        "model_loaded": True,
+        "service": "customer-churn-api"
+    }
+
 
 @app.post("/predict")
 def predict(data: CustomerData):
@@ -63,15 +74,20 @@ def predict(data: CustomerData):
     }
     input_df = pd.DataFrame([input_dict])
     transformed = preprocessor.transform(input_df)
+    start_time = time.time()
     prediction = model.predict(transformed)[0]
+    execution_time = time.time() - start_time
     probability = model.predict_proba(transformed)[0][1]
+    logger.info("Prediction request received")
+    logger.info(f"Input shape: {input_df.shape}")
     
     result = "Customer Will Churn " if prediction == 1 else "Customer Will Not Churn"
+    logger.info(f"Prediction: {result}")
     probability = f"{round(float(probability),4) * 100}%"
     return {
         "prediction": result,
-        "probability": probability
-        
-        
+        "probability": probability,
+        "response_time": round(execution_time,3)
+
     }
     
